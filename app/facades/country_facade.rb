@@ -10,5 +10,6 @@ class CountryFacade
   def self.random_country
     country = CountryFacade.all_countries 
     country.sample
+
   end
 end
