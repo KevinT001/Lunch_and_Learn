@@ -1,7 +1,7 @@
 # README
 <div id="header" align="center">
 
-<img width="762" alt="stud and eat" src="https://images.pexels.com/photos/7034226/pexels-photo-7034226.jpeg?auto=compress&cs=tinysrgb&w=600">
+<img width="300" alt="stud and eat" src="https://images.pexels.com/photos/7034226/pexels-photo-7034226.jpeg?auto=compress&cs=tinysrgb&w=600">
 </div>
 
 <h1 align="center"> Lunch and Learn</h1>
@@ -72,16 +72,7 @@ Back-end portion of a Service Oriented Architecture  application to search for c
 3. To run this server, run `rails s` in the terminal and rails will start the development server. To stop the local server, use command `Control + C`.
 4. Please use Postman to view endpoint information.
 
-
-Pull down the [Back-End repo](https://github.com/KitchenSyncPlus/KSP_be). Set up instructions are in that repository's README.
-Do not nest this inside your front-end repository.
-
-
 <table>
-  <tr>
-    <td><img src="https://avatars.githubusercontent.com/u/36166420?v=4"></td>
-  
-  </tr>
   <tr>
     <td>Kevin Ta</td>
   </tr>
