@@ -90,7 +90,6 @@ RSpec.describe 'recipe index' do
       expect(parsed_response[:data].first[:attributes]).to have_key(:title)
       expect(parsed_response[:data].first[:attributes][:title]).to be_a String
       expect(parsed_response[:data].first[:attributes][:title]).to eq("Andy Ricker's Naam Cheuam Naam Taan Piip (Palm Sugar Simple Syrup)")
-  
     end
   end 
 end
