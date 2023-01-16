@@ -22,8 +22,6 @@ RSpec.describe Country do
     sample_country = Country.new(attributes)
 
     expect(sample_country).to be_a(Country)
-    expect(sample_country.name).to eq("Cook Islands")
-
-      
+    expect(sample_country.name).to eq("Cook Islands")   
   end
 end

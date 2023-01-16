@@ -1,6 +1,10 @@
-class RecipeFacade
+class RecipesFacade
 
-  def self.search_recipes(country)
-    #need edamam service and country service
+  def self.recipe_results(country)
+
+    recipe_info  = RecipeService.retrieve_recipes(country)
+    recipes = recipe_info[:hits].map do |recipe|
+      Recipe.new(recipe, country)
+    end
   end
 end
