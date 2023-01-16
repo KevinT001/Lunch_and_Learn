@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'CountryService' do 
 
-  it '.retrieve_all_countries' do 
+  it '.retrieve_all_countries', :vcr do 
     countries = CountryService.retrieve_all_countries
     first_country = countries.first
 

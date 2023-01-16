@@ -1,7 +1,7 @@
 require 'rails_helper' 
 
 RSpec.describe 'RecipeFacade' do 
-  it '.recipe_results(country)' do 
+  it '.recipe_results(country)', :vcr do 
     countries_recipes = RecipesFacade.recipe_results("Thailand")
     first_recipe = countries_recipes.first 
 

@@ -63,4 +63,19 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+require 'vcr'
+
+  VCR.configure do |config|
+    config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+    config.default_cassette_options = { re_record_interval: 1.days }
+    config.hook_into :webmock
+    config.configure_rspec_metadata!
+    config.filter_sensitive_data('<weather_key>') { ENV['weather_key'] }
+    config.filter_sensitive_data('<app_key>') { ENV['edamam_key'] }
+    config.filter_sensitive_data('<app_id>') { ENV['edamam_id'] }
+    config.filter_sensitive_data('<key>') { ENV['youtube_key'] }
+
+    config.allow_http_connections_when_no_cassette = true
+  end
+
 end

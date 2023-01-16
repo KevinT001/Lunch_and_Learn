@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'recipe index' do 
 
-  describe 'can connect to request endpoint successfully' do 
+  describe 'can connect to request endpoint successfully', :vcr do 
     it 'can return a JSON response' do 
       country = "Thailand" 
-
+      
       get "/api/v1/recipes?country=#{country}"
 
       expect(response).to be_successful
@@ -26,7 +26,7 @@ RSpec.describe 'recipe index' do
 
     end
 
-    it 'can get recipes for a user if country params arent filled ' do 
+    it 'can get recipes for a user if country params arent filled', :vcr do 
 
             get "/api/v1/recipes"
 
@@ -45,7 +45,7 @@ RSpec.describe 'recipe index' do
       expect(parsed_response[:data].first[:attributes][:title]).to be_a String
     end
 
-    it 'will return error / blank data hash if bad info is inputted' do 
+    it 'will return error / blank data hash if bad info is inputted', :vcr do 
       country = " " 
 
       get "/api/v1/recipes?country=#{country}"
@@ -57,7 +57,7 @@ RSpec.describe 'recipe index' do
       expect(parsed_response).to eq({"data": []})
     end
 
-    it 'will return blank data hash if gibberish/ no recipe for non existant country is input' do 
+    it 'will return blank data hash if gibberish/ no recipe for non existant country is input', :vcr do 
       country = "FallingClouds" 
 
       get "/api/v1/recipes?country=#{country}"
@@ -71,7 +71,7 @@ RSpec.describe 'recipe index' do
   end
 
   describe 'edgecase for country font case' do 
-   it 'edgecase test for country name mixed case text' do 
+   it 'edgecase test for country name mixed case text', :vcr do 
     country = "ThAiLaNd" 
 
       get "/api/v1/recipes?country=#{country}"
