@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'recipe index' do 
 
-  describe 'can connect to request endpoint successfully', :vcr do 
+  describe 'can connect to request endpoint successfully' do 
     it 'can return a JSON response' do 
       country = "Thailand" 
       
