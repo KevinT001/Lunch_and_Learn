@@ -69,4 +69,28 @@ RSpec.describe 'recipe index' do
       expect(parsed_response).to eq({"data": []})
     end
   end
+
+  describe 'edgecase for country font case' do 
+   it 'edgecase test for country name mixed case text' do 
+    country = "ThAiLaNd" 
+
+      get "/api/v1/recipes?country=#{country}"
+
+      expect(response).to be_successful
+
+      parsed_response = JSON.parse(response.body,symbolize_names: true)
+      
+      expect(parsed_response).to be_a Hash
+      expect(parsed_response).to have_key(:data)
+      expect(parsed_response[:data]).to be_an Array
+      expect(parsed_response[:data].first).to have_key(:id)
+      expect(parsed_response[:data].first[:type]).to eq("recipes")
+      expect(parsed_response[:data].first[:attributes]).to have_key(:id)
+      expect(parsed_response[:data].first[:attributes]).to be_a Hash
+      expect(parsed_response[:data].first[:attributes]).to have_key(:title)
+      expect(parsed_response[:data].first[:attributes][:title]).to be_a String
+      expect(parsed_response[:data].first[:attributes][:title]).to eq("Andy Ricker's Naam Cheuam Naam Taan Piip (Palm Sugar Simple Syrup)")
+  
+    end
+  end 
 end
