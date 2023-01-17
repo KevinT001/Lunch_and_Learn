@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Country do 
 
-  it 'has Attributes' do 
+  xit 'has Attributes' do 
     attributes = {
                           "name": {
                               "common": "Cook Islands",

@@ -1,7 +1,7 @@
 class CountryService 
   def self.retrieve_country(name)
     response = conn.get("/v3.1/name/#{name}")
-    parsed = JSON.parse(response.body, symbolize_names: true).first 
+    parsed = JSON.parse(response.body, symbolize_names: true) 
   end
 
   def self.retrieve_all_countries 

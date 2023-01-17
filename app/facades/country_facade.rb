@@ -18,4 +18,5 @@ class CountryFacade
     single_country.map do |info|
       Country.new(info)
     end
+  end
 end
