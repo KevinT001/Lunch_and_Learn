@@ -14,7 +14,7 @@ class AirQuality
        "Good"
     elsif @aqi == 2 
        "Fair"
-    elsif @aqi === 3
+    elsif @aqi == 3
        "Moderate"
     elsif @aqi == 4
        "Poor"
