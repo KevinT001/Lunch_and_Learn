@@ -10,4 +10,6 @@ RSpec.describe 'Can Connect successfully to endpoint' do
 
     parsed_response = JSON.parse(response.body,symbolize_names: true)
   end 
+
+
 end
