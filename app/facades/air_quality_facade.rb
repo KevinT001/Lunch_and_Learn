@@ -5,7 +5,7 @@ class AirQualityFacade
 
     air_data = AirQualityService.get_air_quality_info(lat, lon)
       air_data[:list].map do |aq, country|
-        Pollution.new(aq, country)
+        AirQuality.new(aq, country)
       end
  
 
