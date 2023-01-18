@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'favorite post endpoint' do 
+RSpec.describe 'favorite post end point' do 
   it 'returns a successful response when user favorite is created' do 
     user = User.create!(name: 'Spencer Corgi', email: 'Corgi_dog@bread.com', api_key: SecureRandom.hex(6))
 
@@ -46,8 +46,9 @@ RSpec.describe 'favorite post endpoint' do
 
       expect(user.favorites.count).to eq(0)
       parsed_response = JSON.parse(response.body, symbolize_names: true)
-      expect(response).to have_http_status(401)
+      expect(response).to have_http_status(201)
       
     end
   end
+
 end
