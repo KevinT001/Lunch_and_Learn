@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'learning_resource show' do 
   describe 'can connect to endpoint sucessfully' do 
-    it 'can returna JSON response from the endpoint' do 
+    it 'can returna JSON response from the endpoint', :vcr do 
       country = "laos"
       get "/api/v1/learning_resources?country=#{country}"
       

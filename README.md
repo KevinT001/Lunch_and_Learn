@@ -8,13 +8,11 @@
 
 
 
-
 ## Table of Contents
 
 - [Project Overview](#project-overview)
 - [Learning Goals](#learning-goals)
 - [Planning Documents](#planning-documents)
-- [Illustrations](#illustrations)
 - [Technologies and Tools](#technologies-and-tools)
 - [Setup](#setup)
 
@@ -37,8 +35,6 @@ Back-end portion of a Service Oriented Architecture  application to search for c
 [Project Spec](https://backend.turing.edu/module3/projects/lunch_and_learn/)
 [Project requirements](https://backend.turing.edu/module3/projects/lunch_and_learn/requirements)
 
-## Illustrations
-
 
 ## Technologies and Tools
 
@@ -58,11 +54,16 @@ Back-end portion of a Service Oriented Architecture  application to search for c
 - [Faker](https://github.com/faker-ruby/faker)
 - [Factorybot](https://github.com/thoughtbot/factory_bot)
 - [Figaro](https://github.com/laserlemon/figaro)
-- [Rubocop](https://github.com/rubocop/rubocop)
 - [Faraday](https://github.com/lostisland/faraday)
 - [Webmock](https://github.com/bblimke/webmock)
 - [VCR](https://github.com/vcr/vcr)
-- [Omniauth-google-oauth2](https://github.com/zquestz/omniauth-google-oauth2)
+- [jsonapi-serializer](https://github.com/codecutout/JsonApiSerializer)
+
+#### API Keys need
+
+- Get a free API Key for EDAMAM Recipe [Here](https://developer.edamam.com/edamam-recipe-api)
+- Get a free API Key for YouTube videos at [Here](https://developers.google.com/youtube/v3/getting-started)
+- Get a free API Key for Unsplash images at[Here](https://unsplash.com/developers)
 
 
 ## Setup
@@ -70,7 +71,31 @@ Back-end portion of a Service Oriented Architecture  application to search for c
 1. Fork and clone this repository.
 2. Cd into the root directory and run `code .`(for Visual Studio).
 3. To run this server, run `rails s` in the terminal and rails will start the development server. To stop the local server, use command `Control + C`.
-4. Please use Postman to view endpoint information.
+4. Please use Postman to view endpoint information. url: http://localhost:3000<'END POINT HERE> 
+
+## End Points 
+
+Get Recipes for a Particular Country
+- `GET /api/v1/recipes?country=#{country}`
+[Frontend wireframe](https://backend.turing.edu/module3/projects/lunch_and_learn/images/recipes-show.png)
+
+Get Learning Resources for a Particular Country
+- `GET /api/v1/learning_resources?country=#{country}`
+[Frontend wireframe](https://backend.turing.edu/module3/projects/lunch_and_learn/images/country-show.png)
+
+User Registration
+- `POST /api/v1/users`
+[Frontend wireframe](https://backend.turing.edu/module3/projects/lunch_and_learn/images/register-fake.png)
+
+
+Add Favorites
+- `POST /api/v1/favorites`
+[Frontend wireframe](https://backend.turing.edu/module3/projects/lunch_and_learn/images/favorites.png)
+
+
+Get a User's Favorites
+- `GET /api/v1/favorites?api_key=jgn983hy48thw9begh98h4539h4`
+[Frontend wireframe](https://backend.turing.edu/module3/projects/lunch_and_learn/images/favorites.png)
 
 <table>
   <tr>

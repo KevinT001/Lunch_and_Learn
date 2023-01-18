@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User post endpoint' do 
-  it 'returns a successful response when user is created' do 
+  it 'returns a successful response when user is created', :vcr do 
     user_params = {                                                   #when user types in info to register
                     name: 'Kevin',
                     email: 'test@mail.com'
@@ -29,7 +29,7 @@ RSpec.describe 'User post endpoint' do
   end
 
   describe 'a sad path test if email is already used to create a user' do 
-    it 'gives an error if email is already taken/used' do 
+    it 'gives an error if email is already taken/used', :vcr do 
       kevins_params = { 
                         name: "Kevin",
                         email: "hello@email.com"

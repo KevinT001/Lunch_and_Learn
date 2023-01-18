@@ -26,6 +26,7 @@ group :development, :test do
   gem 'faker'
   gem 'vcr'
   gem 'webmock'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
@@ -36,7 +37,6 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
-  gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov'
 end
 

@@ -20,8 +20,13 @@ RSpec.describe Country do
                           }
                         }
     sample_country = Country.new(attributes)
-
+                      
     expect(sample_country).to be_a(Country)
     expect(sample_country.name).to eq("Cook Islands")   
+    # expect(sample_country[:name]).to have_key(:common)
+    # expect(sample_country[:name]).to have_key(:official)
+    # expect(sample_country[:name]).to have_key(:nativeName)
+    # expect(sample_country[:name][:nativeName]).to have_key(:eng)
+    # expect(sample_country[:name][:nativeName][:eng]).to be a Hash
   end
 end
