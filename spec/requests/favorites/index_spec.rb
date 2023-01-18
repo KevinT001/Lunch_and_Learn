@@ -24,5 +24,15 @@ RSpec.describe 'favorite index' do
     expect(parsed_response[:data].count).to eq(2)
   end
 
+  it 'returns error to favorites endpoint if user doesnt exist' do 
+    user = User.create!(name: 'Spencer Corgi', email: 'Corgi_dog@bread.com', api_key: SecureRandom.hex(6))
+
+    get "/api/v1/favorites", params: { "api_key": "tacotruck123" }
+
+    parsed_response = JSON.parse(response.body, symbolize_names: true )
+
+    expect(response).to_not be_successful
+    expect(parsed_response).to eq({:error=>"No User exists"}) 
+  end
 
 end
