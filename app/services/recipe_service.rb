@@ -4,8 +4,6 @@ class RecipeService
     Faraday.new(url: "https://api.edamam.com") do |f|
       f.params['app_id'] = ENV['edamam_id']
       f.params['app_key'] = ENV['edamam_key']
-      # f.params["q=#{country}"]
-      # f.params['type'] = ['public']
     end
   end
   
