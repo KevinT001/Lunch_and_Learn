@@ -46,7 +46,7 @@ RSpec.describe 'favorite post end point' do
 
       expect(user.favorites.count).to eq(0)
       parsed_response = JSON.parse(response.body, symbolize_names: true)
-      expect(response).to have_http_status(201)
+      expect(response).to have_http_status(401)
       
     end
   end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'favorite index' do 
 
-  it 'can return successful connection to favorites endpoint' do 
+  it 'can return successful response to favorites endpoint' do 
     user = User.create!(name: 'Spencer Corgi', email: 'Corgi_dog@bread.com', api_key: SecureRandom.hex(6))
 
     # api_key = SecureRandom.hex(6)
@@ -14,6 +14,15 @@ RSpec.describe 'favorite index' do
 
     expect(response).to be_successful 
     expect(response).to have_http_status(200)
-
+    parsed_response = JSON.parse(response.body, symbolize_names: true)
+    
+    expect(parsed_response).to be_a Hash
+    expect(parsed_response).to have_key(:data)
+    expect(parsed_response[:data][0][:id]).to be_a String
+    expect(parsed_response[:data][0][:attributes][:country]).to eq("thailand")
+    expect(parsed_response[:data][1][:attributes][:country]).to eq("Argentina")
+    expect(parsed_response[:data].count).to eq(2)
   end
+
+
 end
