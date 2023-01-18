@@ -12,9 +12,7 @@ class Api::V1::RecipesController < ApplicationController
    
       render json:RecipesSerializer.new(recipes)
     else #type in giberish, there will be no data for giberish
-      render json: {
-                    "data": []
-                    }
+      render json: {"data": []}
     end
   end
 end

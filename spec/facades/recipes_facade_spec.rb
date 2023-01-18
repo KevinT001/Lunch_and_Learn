@@ -12,7 +12,5 @@ RSpec.describe 'RecipeFacade' do
     expect(first_recipe.title).to be_a String
     expect(first_recipe.url).to be_a String
     
-    
-    
   end
 end

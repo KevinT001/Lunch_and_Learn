@@ -1,10 +1,11 @@
 class Video 
-  attr_reader :video_id, :title, :country
+  attr_reader :youtube_video_id, :title, :country
 
-  def initialize(attributes, country)
-    @video_id = attributes[:id][:videoId]
+  def initialize(attributes)
+
     @title = attributes[:snippet][:title]
-    @country = country 
+    @youtube_video_id = attributes[:id][:videoId]
+    # @country = country 
 
   end
 end

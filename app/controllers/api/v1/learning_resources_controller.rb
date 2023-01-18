@@ -1,9 +1,10 @@
 class Api::V1::LearningResourcesController < ApplicationController
   def show 
-    # if params[:country].present?
+      country = params[:country]
       video = VideoFacade.video_results_info(params[:country])
-      photos = PhotoFacade.photo_results(params[:country])
+      images = PhotoFacade.photo_results(params[:country])
+      resource = LearningResources.new(country, video, images)
+      render json:LearningResourcesSerializer.new(resource)
       
-      render json:LearningResourcesSerializer.new(video, photos)
   end
 end 

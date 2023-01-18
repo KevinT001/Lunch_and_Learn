@@ -27,8 +27,8 @@ RSpec.describe 'recipe index' do
       VCR.eject_cassette
     end
 
-    it 'can get recipes for a user if country params arent filled' do 
-      VCR.insert_cassette "can_get_recipes_for_a_user_if_country_params_arent_filled"
+    it 'can get recipes for a user if country params arent filled', :vcr do 
+      # VCR.insert_cassette "can_get_recipes_for_a_user_if_country_params_arent_filled"
             get "/api/v1/recipes"
 
       expect(response).to be_successful
@@ -43,7 +43,7 @@ RSpec.describe 'recipe index' do
       expect(parsed_response[:data].first[:attributes]).to be_a Hash
       expect(parsed_response[:data].first[:attributes]).to have_key(:title)
       expect(parsed_response[:data].first[:attributes][:title]).to be_a String
-      VCR.eject_cassette
+      # VCR.eject_cassette
     end
 
     it 'will return error / blank data hash if bad info is inputted', :vcr do 
@@ -54,7 +54,8 @@ RSpec.describe 'recipe index' do
       expect(response).to be_successful
 
       parsed_response = JSON.parse(response.body,symbolize_names: true)
-
+      expect(parsed_response).to be_a Hash
+      expect(parsed_response).to have_key(:data)
       expect(parsed_response).to eq({"data": []})
     end
 
