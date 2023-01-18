@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       # resources :learning_resources, only: [:show]
       get "learning_resources", to: "learning_resources#show"
       resources :users, only: [:create]
+      resources :favorites, only: [:create]
     end
   end
 end
