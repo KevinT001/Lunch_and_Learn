@@ -2,11 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'favorite index' do 
 
-  it 'can return successful response to favorites endpoint' do 
+  it 'can return successful response to favorites endpoint', :vcr do 
     user = User.create!(name: 'Spencer Corgi', email: 'Corgi_dog@bread.com', api_key: SecureRandom.hex(6))
 
     # api_key = SecureRandom.hex(6)
-
     favorite_recipe_1 = user.favorites.create!(country: 'thailand', recipe_link: 'https://www.tastingtable.com/..',recipe_title: 'Crab Fried Rice (Khaao Pad Bpu)')
     favorite_recipe_2 = user.favorites.create!(country: 'Argentina',recipe_link: 'https://www.argentinatable.com/..',recipe_title: 'Traditional New Year Dish')
     
@@ -24,7 +23,7 @@ RSpec.describe 'favorite index' do
     expect(parsed_response[:data].count).to eq(2)
   end
 
-  it 'returns error to favorites endpoint if user doesnt exist' do 
+  it 'returns error to favorites endpoint if user doesnt exist', :vcr do 
     user = User.create!(name: 'Spencer Corgi', email: 'Corgi_dog@bread.com', api_key: SecureRandom.hex(6))
 
     get "/api/v1/favorites", params: { "api_key": "tacotruck123" }
@@ -34,5 +33,4 @@ RSpec.describe 'favorite index' do
     expect(response).to_not be_successful
     expect(parsed_response).to eq({:error=>"No User exists"}) 
   end
-
 end

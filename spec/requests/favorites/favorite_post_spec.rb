@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'favorite post end point' do 
-  it 'returns a successful response when user favorite is created' do 
+  it 'returns a successful response when user favorite is created', :vcr do 
     user = User.create!(name: 'Spencer Corgi', email: 'Corgi_dog@bread.com', api_key: SecureRandom.hex(6))
 
     fav_params = {
@@ -14,7 +14,7 @@ RSpec.describe 'favorite post end point' do
     expect(user.favorites.count).to eq(0)
     
     post '/api/v1/favorites', params: fav_params
-# binding.pry
+
     expect(user.favorites.count).to eq(1)
     parsed_response = JSON.parse(response.body, symbolize_names: true)
     expect(response).to have_http_status(201) #successful
@@ -34,7 +34,7 @@ RSpec.describe 'favorite post end point' do
   end
 
   describe 'sad path' do 
-    it 'returns error message if user has invalid/bad api_key' do 
+    it 'returns error message if user has invalid/bad api_key', :vcr do 
       user = User.create!(name: 'Spencer Corgi', email: 'Corgi_dog@bread.com', api_key: SecureRandom.hex(6))
          fav_params = {
                   "api_key": "password123",
@@ -46,9 +46,7 @@ RSpec.describe 'favorite post end point' do
 
       expect(user.favorites.count).to eq(0)
       parsed_response = JSON.parse(response.body, symbolize_names: true)
-      expect(response).to have_http_status(401)
-      
+      expect(response).to have_http_status(401)   
     end
   end
-
 end

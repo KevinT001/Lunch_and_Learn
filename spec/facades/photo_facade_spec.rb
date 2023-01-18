@@ -10,7 +10,7 @@ RSpec.describe 'PhotoFacade' do
     expect(photos.first).to be_an_instance_of(Photo)
     expect(photos.first.alt_tag).to be_a String
     expect(photos.first.url).to be_a String
-    results = "https://images.unsplash.com/photo-1606064195579-a48c728cec35?ixid=MnwzOTk4NTN8MHwxfHNlYXJjaHwxfHxMYW9zfGVufDB8fHx8MTY3MzkyNjQ2Mw&ixlib=rb-4.0.3"
+    results = "https://images.unsplash.com/photo-1606064195579-a48c728cec35?ixid=MnwzOTk4NTN8MHwxfHNlYXJjaHwxfHxMYW9zfGVufDB8fHx8MTY3NDA1MTc3Mg&ixlib=rb-4.0.3"
     expect(photos.first.url).to eq(results)
   end
 end
