@@ -2,7 +2,7 @@ class VideoFacade
 
   def self.video_results_info(country)
     results = VideoService.retrieve_video(country)
-    binding.pry
+
     results[:items].map do |info|
       Video.new(info)
     end
