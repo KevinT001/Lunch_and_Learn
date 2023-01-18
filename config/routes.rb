@@ -7,4 +7,5 @@ Rails.application.routes.draw do
       get "learning_resources", to: "learning_resources#show"
     end
   end
+  resources :users, only: [:create]
 end
